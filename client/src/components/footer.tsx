@@ -1,17 +1,16 @@
+import git from "../git.svg"
 const Footer : React.FC = ( ) => {
 
 	
 	return (
 		<>
 		<footer className="footer">
-		<a href="https://github.com/peterviegas/lm-code-intro-react-router-fakelandia/" target="blank"></a>
-        <p className="footer-paragraph"> © 2023 Peter Viegas</p>
-
-        <nav className="footer-nav">
-            <a className="footer-nav-item" href="https://www.bbc.co.uk/news" target="blank">News</a>
-        </nav>
-        
-    </footer>
+            <nav className="footer-nav">
+                <p className="footer-paragraph"> © 2023 Peter Viegas</p>
+                <a  href="https://github.com/peterviegas/lm-code-intro-react-router-fakelandia/" target="blank"><img className ="footer-img" src={git} alt="Github"></img></a>
+                <a className ="main-contents-articlesubtitle-anchor" href="mailto:peterviegas@outlook.com">Send e-mail</a>
+            </nav>
+        </footer>
 		</>
     )
 }

@@ -1,21 +1,18 @@
 import Nav from './nav';
-import { NavLink } from 'react-router-dom';
 import SideNav from './sideNav';
 const Header : React.FC = ( ) => {
 
-
-	
 	return (
 		<>
-			<div className="div--nav">
-				<SideNav/>
-			</div>
-			<div className="div--header">
-				<header className="header">
+			<header className='header'>
+				<div className="header--div__sidenav">
+					<SideNav/>
+				</div>
+				<div className="header--div__nav">
 					<Nav />
-				</header>
-			</div>
-		
+				</div>
+			</header>
+			<p></p>
 		</>
     )
 }

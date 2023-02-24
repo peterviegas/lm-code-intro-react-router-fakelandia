@@ -1,26 +1,24 @@
+import { useLocation } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+
 const NotFound : React.FC = ( ) => {
+
+	//analytics.sendEvent('404, useLocatin().pathname')
 
 	
 	return (
 		<>
-		<div className="div--header__main">Não encontrardo
-			<div className="div--nav">
-				<nav className="header-nav">
-					<a className="header-nav-item" href="https://www.bbc.co.uk/news" target="blank">News</a>
-					<a className="header-nav-item" href="https://www.bbc.co.uk/news" target="blank">News</a>
-					<a className="header-nav-item" href="https://www.bbc.co.uk/news" target="blank">News</a>
-				</nav>
-			</div>
-			<div className="div--header">
-				<header className="header">
-					<a href="https://github.com/peterviegas/lm-code-intro-react-router-fakelandia/" target="blank"></a>
-					
-					<h1 className="header-title">Home</h1>
-					<h1 className="header-title">Misdemeanours</h1>
-					<h1 className="header-title">Confess To Us</h1>
-				</header>
-			</div>
-			<br />
+		<div className="div--notFound__error">
+			<p>Error 404!</p>
+		</div>
+		<div className="div--notFound__ops">
+			<p>Ops! The page you are</p>
+			<p>looking for could not</p>
+			<p>be found.</p>
+		</div>
+		<div className="div--notFound__button">
+		
+			<button className="notFound__button" ><NavLink to = '/' className='notFoundButton__link'>Return to the home</NavLink></button>
 		</div>
 		</>
     )

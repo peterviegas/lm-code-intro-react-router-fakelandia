@@ -1,41 +1,47 @@
-.div--nav {
+.mainlayout {
+    padding: 3rem!important
+}
+
+.header-div__sidenav {
     width: 20%;
     float: left;
     background: #e2d9dc;
     height: 70px;
     margin-top: -25px;
     font-size: 11px;
+    margin-bottom: 20px;
 }
 
-.div--header {
+.header-div__nav {
     width: 80%;
     float: right;
     background: #e2d9dc;
     height: 70px;
     margin-top: -25px;
+    margin-bottom: 20px;
 }
 
-.navheader li {
+.header-nav li {
     display: inline-flex;
     margin-left: 90px;
 }
 
-.navheader__link {
+.header-nav__link {
     text-decoration: none;
     font-size: 30px;
     font-weight: bold;
     color: #8a327b;
 }
 
-.navheader__link:hover {
+.header-nav__link:hover {
     color: rgb(221, 62, 187);
 }
 
-.sidenavheader li {
+.header-sidenav li {
     list-style-type: none;
 }
 
-.sidenavheader__link {
+.header-sidenav__link {
     text-decoration: none;
     color: #8a327b;
     font-family: Papyrus, fantasy;
@@ -51,7 +57,7 @@
     background: #e2d9dc;
 }
 
-.footer-img {
+.footer-nav__img {
     margin-left: 10px;
     width: 30px;
     height: 30px;
@@ -70,7 +76,7 @@
     align-items: center;
 }
 
-.footer-nav-item {
+.footer-nav__item {
     display: flex;
     gap: 20px;
     color: #8a327b;
@@ -79,4 +85,50 @@
 
 .footer-paragraph {
     color: #8a327b;
+}
+
+.notFound-div__error p {
+    margin: 0 auto;
+    width: 50%;
+    display: flex;
+    width: 300px;
+    justify-content: center;
+    color: #8a327b;
+    font-size: 50px;
+    font-weight: bold;
+}
+
+.notFound-div__ops p {
+    display: flex;
+    justify-content: center;
+    color: #8a327b;
+    font-size: 30px;
+}
+
+.notFound-div__button {
+    margin: 0 auto;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+}
+
+.notFound__button {
+    background: #8a327b;
+    color: white;
+    border-style: outset;
+    border-color: #8a327b;
+    height: 50px;
+    width: 150px;
+    font: bold15px arial, sans-serif;
+    text-shadow: none;
+    text-align: center;
+}
+
+.notFoundButton__link {
+    text-decoration: none;
+    color: white;
+}
+
+body {
+    line-height: 1.5
 }

@@ -1,11 +1,11 @@
 import { NavLink } from "react-router-dom";
 
 const Nav = () => 
-<nav className="is-flex is-flex-grow-1">
-	<ul style={{width:'100%'}}>
-		<li><NavLink to= '/'>Home</NavLink></li>
-		<li><NavLink to= '/about'>About</NavLink></li>
-		<li><NavLink to= '/footer'>Footer</NavLink></li>
+<nav className="header-nav">
+	<ul style={{width:'100%'}} >
+		<li><NavLink to = '/' className='header-nav__link'>Home</NavLink></li>
+		<li><NavLink to = '/about' className='header-nav__link'>About</NavLink></li>
+		<li><NavLink to = '/footer' className='header-nav__link'>Footer</NavLink></li>
 	</ul>
 
 </nav>;

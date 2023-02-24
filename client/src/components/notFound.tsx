@@ -1,4 +1,3 @@
-import { useLocation } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 
 const NotFound : React.FC = ( ) => {
@@ -8,15 +7,15 @@ const NotFound : React.FC = ( ) => {
 	
 	return (
 		<>
-		<div className="div--notFound__error">
+		<div className="notFound-div__error">
 			<p>Error 404!</p>
 		</div>
-		<div className="div--notFound__ops">
+		<div className="notFound-div__ops">
 			<p>Ops! The page you are</p>
 			<p>looking for could not</p>
 			<p>be found.</p>
 		</div>
-		<div className="div--notFound__button">
+		<div className="notFound-div__button">
 		
 			<button className="notFound__button" ><NavLink to = '/' className='notFoundButton__link'>Return to the home</NavLink></button>
 		</div>

@@ -5,10 +5,10 @@ const Header : React.FC = ( ) => {
 	return (
 		<>
 			<header className='header'>
-				<div className="header--div__sidenav">
+				<div className="header-div__sidenav">
 					<SideNav/>
 				</div>
-				<div className="header--div__nav">
+				<div className="header-div__nav">
 					<Nav />
 				</div>
 			</header>

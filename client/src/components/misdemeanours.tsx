@@ -4,7 +4,7 @@ import { Misdemeanour } from "./misdemeanours.types";
 const Midemeanours : React.FC = ( ) => {
 
 	const [misdemeanour, setMisdemeanour] = useState<Array<Misdemeanour>>([]);
-	const [currentPage, setCurrentPage] = useState<number>(10);
+	const [currentPage, setCurrentPage] = useState<number>(8);
   	const [errorMessage, setErrorMessage ] = useState<string | undefined>();
 	//const emoji = [{'rudeness ':'🤪','lift ':'🗣','vegetables ':' 🥗','united ':'😈'}];
 	const emoji = ['rudeness 🤪','lift 🗣','vegetables 🥗','united 😈'];
@@ -44,19 +44,20 @@ const Midemeanours : React.FC = ( ) => {
 
 	return (
 		<>
-		<div>
-			<h1>Midemeanours</h1>
+		<div className="midemeanours-div">
 			<table>
-			<thead>
+				<thead className="midemeanours-table__thead">
 					<tr>
 					<th></th>
 					<th></th>
 					<th>
-					<select name="select" value={filter} onChange={(e)=>setFilter(e.target.value)}>
-						<option>Filter</option>
-						{emoji.map(item=>
-								<option key={item} value={item}>{item}</option>)}
-					</select>
+						<div  className="midemeanours-div__th">
+							<select name="midemeanours-div__th--select" value={filter} onChange={(e)=>setFilter(e.target.value)}>
+								<option>Filter</option>
+								{emoji.map(item=>
+										<option key={item} value={item}>{item}</option>)}
+							</select>
+						</div>
 					</th>
 					<th></th>
 					</tr>
@@ -74,18 +75,18 @@ const Midemeanours : React.FC = ( ) => {
 				 return(
 					 <div className="misd-div" key={ itens.citizenId }>
 						<table>
-							<tbody>
+							<tbody className="midemeanours-table__tbody">
 								<tr>
-								<td>{itens.citizenId}</td>
-								<td>{itens.date}</td>
-								<td>{emoji.find((item)=>{
-									let itemaux = item.split(" ");
-									if (itens.misdemeanour === itemaux[0]){
-										return  item;
-									}
-								})
-								}</td>
-								<td> <img className ="misd-div__img" src={`https://picsum.photos/id/${Math.floor(Math.random() * 500)}/40`} alt="Foto Picsum"></img></td>
+									<td>{itens.citizenId}</td>
+									<td>{itens.date}</td>
+									<td >{emoji.find((item)=>{
+										let itemaux = item.split(" ");
+										if (itens.misdemeanour === itemaux[0]){
+											return  item;
+										}
+									})
+									}</td>
+									<td> <img className ="misd-div__img" src={`https://picsum.photos/id/${Math.floor(Math.random() * 500)}/40`} alt="Foto Picsum"></img></td>
 								</tr>
 							</tbody>
 						</table>

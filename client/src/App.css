@@ -48,7 +48,7 @@
 }
 
 .footer {
-    margin-top: 48px;
+    margin-top: 1px;
     border-top: 0.4px solid #a01a8a;
     display: flex;
     flex-direction: row;
@@ -131,4 +131,29 @@
 
 body {
     line-height: 1.5
+}
+
+.midemeanours-div {
+    margin: 0 auto;
+    width: 800px;
+    color: #8a327b;
+    font-size: 15px;
+    font-weight: bold;
+    flex-direction: column;
+    text-align: center;
+}
+
+.midemeanours-table__thead th {
+    width: 200px;
+}
+
+.midemeanours-table__tbody td {
+    width: 200px;
+    margin: auto;
+}
+
+.midemeanours-div__th--select {
+    background-color: #a01a8a;
+    color: #8a327b;
+    border-radius: 6px;
 }

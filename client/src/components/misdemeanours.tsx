@@ -1,14 +1,16 @@
 import { useEffect, useState } from "react";
 import { Misdemeanour } from "./misdemeanours.types";
+import {EmojiMisdemeanour} from '../types/emoji-misdemeanours.types';
+import Select from 'react-select';
+
 
 const Midemeanours : React.FC = ( ) => {
 
 	const [misdemeanour, setMisdemeanour] = useState<Array<Misdemeanour>>([]);
 	const [currentPage, setCurrentPage] = useState<number>(8);
   	const [errorMessage, setErrorMessage ] = useState<string | undefined>();
-	//const emoji = [{'rudeness ':'🤪','lift ':'🗣','vegetables ':' 🥗','united ':'😈'}];
 	const emoji = ['rudeness 🤪','lift 🗣','vegetables 🥗','united 😈'];
-	const [filter, setFilter] = useState("");
+	const [search, setSearch] = useState("");
 
 	useEffect(() => {
 	getMisdemeanour(currentPage);
@@ -42,6 +44,18 @@ const Midemeanours : React.FC = ( ) => {
 		}
 	}
 
+	let misdemeanourFilter = misdemeanour;
+	//check the filter
+	if (search !==""){
+		misdemeanourFilter = misdemeanour.filter((itens) => itens.misdemeanour === search);
+	}
+
+	console.log("search",search);
+
+	const handSelectChange = ({value}:any) => {
+		setSearch(value)
+	}
+
 	return (
 		<>
 		<div className="midemeanours-div">
@@ -51,12 +65,12 @@ const Midemeanours : React.FC = ( ) => {
 					<th></th>
 					<th></th>
 					<th>
-						<div  className="midemeanours-div__th">
-							<select name="midemeanours-div__th--select" value={filter} onChange={(e)=>setFilter(e.target.value)}>
-								<option>Filter</option>
-								{emoji.map(item=>
-										<option key={item} value={item}>{item}</option>)}
-							</select>
+						<div className='midemeanours-div__reason--select'>
+						<Select 
+							defaultValue = {{label:'Select', value:'Select'}}
+							options={EmojiMisdemeanour}
+							onChange = {handSelectChange}
+						/>
 						</div>
 					</th>
 					<th></th>
@@ -71,7 +85,7 @@ const Midemeanours : React.FC = ( ) => {
 					</tr>
 				</thead>
 			</table>
-			 {misdemeanour.map((itens) => {
+			 {misdemeanourFilter.map((itens) => {
 				 return(
 					 <div className="misd-div" key={ itens.citizenId }>
 						<table>

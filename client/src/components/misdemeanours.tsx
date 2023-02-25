@@ -8,6 +8,7 @@ const Midemeanours : React.FC = ( ) => {
   	const [errorMessage, setErrorMessage ] = useState<string | undefined>();
 	//const emoji = [{'rudeness ':'🤪','lift ':'🗣','vegetables ':' 🥗','united ':'😈'}];
 	const emoji = ['rudeness 🤪','lift 🗣','vegetables 🥗','united 😈'];
+	const [filter, setFilter] = useState("");
 
 	useEffect(() => {
 	getMisdemeanour(currentPage);
@@ -46,6 +47,20 @@ const Midemeanours : React.FC = ( ) => {
 		<div>
 			<h1>Midemeanours</h1>
 			<table>
+			<thead>
+					<tr>
+					<th></th>
+					<th></th>
+					<th>
+					<select name="select" value={filter} onChange={(e)=>setFilter(e.target.value)}>
+						<option>Filter</option>
+						{emoji.map(item=>
+								<option key={item} value={item}>{item}</option>)}
+					</select>
+					</th>
+					<th></th>
+					</tr>
+				</thead>
 				<thead>
 					<tr>
 					<th>Citizen ID</th>

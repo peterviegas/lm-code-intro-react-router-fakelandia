@@ -1,33 +1,19 @@
 import { useState } from 'react';
 import Select from 'react-select';
+import {EmojiMisdemeanour} from '../types/emoji-misdemeanours.types'
 
 const ConfessToUs : React.FC = ( ) => {
 	const [subject, setSubject] = useState ("");
 	const [details, setDetails] = useState ("");
-	//const emoji = ['rudeness 🤪','lift 🗣','vegetables 🥗','united 😈'];
-	const emoji = [
-		{label: 'rudeness 🤪', value: 'rudeness'},
-		{label: 'lift 🗣', value: 'lift'},
-		{label: 'vegetables 🥗', value: 'vegetables'},
-		{label: 'united 😈', value: 'united'}
-	];
 
-	const [filter, setFilter] = useState("");
+	const [filter, setFilter] = useState();
 
 	function confessSend(){
 		console.log("Cheguei aqui")
 	}
 
-	const suppliers = [
-		{label: 'Facebook', value: 'Facebook'},
-		{label: 'Instagram', value: 'Instagram'},
-		{label: 'YouTube', value: 'YouTube'},
-	]
-
-	const [selectedSuppplier, setSelectedSupplier] = useState();
 	const handSelectChange = ({value}:any) => {
-		console.log(value);
-		setSelectedSupplier(value)
+		setFilter(value)
 	}
 
 	return (
@@ -49,7 +35,7 @@ const ConfessToUs : React.FC = ( ) => {
 					<div className='confessToUs-div__reason--select'>
 						<Select 
 							defaultValue = {{label:'Select', value:'Select'}}
-							options={emoji}
+							options={EmojiMisdemeanour}
 							onChange = {handSelectChange}
 						/>
 					</div>
@@ -63,14 +49,10 @@ const ConfessToUs : React.FC = ( ) => {
 						Confess
 					</button>
 				</div>
-
-				
-				
 			</form>
 		</div>
 		
 		</>
     )
 }
-
 export default ConfessToUs;

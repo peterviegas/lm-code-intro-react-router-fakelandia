@@ -6,6 +6,8 @@ const Midemeanours : React.FC = ( ) => {
 	const [misdemeanour, setMisdemeanour] = useState<Array<Misdemeanour>>([]);
 	const [currentPage, setCurrentPage] = useState<number>(10);
   	const [errorMessage, setErrorMessage ] = useState<string | undefined>();
+	//const emoji = [{'rudeness ':'🤪','lift ':'🗣','vegetables ':' 🥗','united ':'😈'}];
+	const emoji = ['rudeness 🤪','lift 🗣','vegetables 🥗','united 😈'];
 
 	useEffect(() => {
 	getMisdemeanour(currentPage);
@@ -14,17 +16,11 @@ const Midemeanours : React.FC = ( ) => {
 	const getMisdemeanour = async (pageNumber : number) => {
 		try{
 			const apiResponse = await fetch(`http://localhost:8080/api/misdemeanours/${pageNumber}`);
-			console.log("apiResponse.status",apiResponse.status)
-
 			switch (apiResponse.status)
 			{
 				case 200: {
-					console.log("Chegou aqui antes do json")
 					const json = await apiResponse.json() as { misdemeanours: Misdemeanour[] };
-					//const jsonPage = await apiResponse.json() as { data: Page[] };
 					setMisdemeanour(json.misdemeanours);
-					console.log("Chegou aqui depois do json")
-					console.log("Entrou no 200 Valor encontrado:", json.misdemeanours[0].date)
 					break;
 				  }
 				  case 418:{
@@ -44,8 +40,6 @@ const Midemeanours : React.FC = ( ) => {
 			setErrorMessage ("Error - Execution without return code");
 		}
 	}
-
-	
 
 	return (
 		<>
@@ -69,8 +63,14 @@ const Midemeanours : React.FC = ( ) => {
 								<tr>
 								<td>{itens.citizenId}</td>
 								<td>{itens.date}</td>
-								<td>{itens.misdemeanour}</td>
-								<td> <img className ="misd-div__img" src='https://picsum.photos/30/30' alt="Foto Picsum"></img></td>
+								<td>{emoji.find((item)=>{
+									let itemaux = item.split(" ");
+									if (itens.misdemeanour === itemaux[0]){
+										return  item;
+									}
+								})
+								}</td>
+								<td> <img className ="misd-div__img" src={`https://picsum.photos/id/${Math.floor(Math.random() * 500)}/40`} alt="Foto Picsum"></img></td>
 								</tr>
 							</tbody>
 						</table>

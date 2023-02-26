@@ -1,20 +1,72 @@
 import { useState } from 'react';
 import Select from 'react-select';
 import {EmojiMisdemeanour} from '../types/emoji-misdemeanours.types'
+//import { UsePost } from '../hook/usePost';
 
 const ConfessToUs : React.FC = ( ) => {
 	const [subject, setSubject] = useState ("");
 	const [details, setDetails] = useState ("");
+	const [reason, setReason] = useState();
+	const emojiJustTalked = [
+		{label: 'just-talk 😀', value: 'just-talk'},
+	]
 
-	const [filter, setFilter] = useState();
-
-	function confessSend(){
-		console.log("Cheguei aqui")
-	}
+	const emojiActual = [...EmojiMisdemeanour, ...emojiJustTalked];
 
 	const handSelectChange = ({value}:any) => {
-		setFilter(value)
+		setReason(value)
 	}
+
+	async function handleSend(){
+		console.log("Cheguei aqui")
+
+		if(subject === '' || details === '' || reason === ''){
+			alert("Preencha os campos")
+			return;
+		}
+
+		const data = {
+			subject,
+			reason,
+			details
+		}
+		console.log(data);
+		alert("verificar")
+
+		fetch(`http://localhost:8080/api/confess`, {
+			method: 'Post',
+			headers: {
+				'Content-type': 'application/json',
+			},
+			body: JSON.stringify(data),
+		}).then((resp) => resp.json())
+		.then((data) => {
+			console.log("Vamos ver o que retornou", data)
+			alert("verificar")
+
+			//real confession
+			if(data.success === true){
+				if (data.justTalked === false){
+					//insert
+					console.log("it's a real :", data.success, " - data.justTalked ", data.justTalked)
+					alert("Misdemeanours received successfully 😀")
+				}
+			}else{
+				console.log("Deu merda")
+				alert("Error in sending the information")
+			}
+
+			//ConfessServices(data);
+		})
+		.catch(err => console.log(err))
+
+		//const url = `http://localhost:8080/api/confess`;
+		//const {dataConfess} = await UsePost(url,data );
+
+		//console.log("resposta vinda do servidor????????????: ", dataConfess)
+		//alert("verificar")
+	}
+
 
 	return (
 		<>
@@ -35,7 +87,7 @@ const ConfessToUs : React.FC = ( ) => {
 					<div className='confessToUs-div__reason--select'>
 						<Select 
 							defaultValue = {{label:'Select', value:'Select'}}
-							options={EmojiMisdemeanour}
+							options={emojiActual}
 							onChange = {handSelectChange}
 						/>
 					</div>
@@ -45,7 +97,7 @@ const ConfessToUs : React.FC = ( ) => {
 					</textarea>
 				</div>
 				<div className="confessToUs-div__button">
-					<button className="fakelandia-button" onClick={confessSend}>
+					<button className="fakelandia-button"  onClick={handleSend}>
 						Confess
 					</button>
 				</div>

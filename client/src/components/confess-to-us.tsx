@@ -18,10 +18,8 @@ const ConfessToUs : React.FC = ( ) => {
 	}
 
 	async function handleSend(){
-		console.log("Cheguei aqui")
-
 		if(subject === '' || details === '' || reason === ''){
-			alert("Preencha os campos")
+			alert("Fill in the fields")
 			return;
 		}
 
@@ -30,8 +28,6 @@ const ConfessToUs : React.FC = ( ) => {
 			reason,
 			details
 		}
-		console.log(data);
-		alert("verificar")
 
 		fetch(`http://localhost:8080/api/confess`, {
 			method: 'Post',
@@ -41,18 +37,14 @@ const ConfessToUs : React.FC = ( ) => {
 			body: JSON.stringify(data),
 		}).then((resp) => resp.json())
 		.then((data) => {
-			console.log("Vamos ver o que retornou", data)
-			alert("verificar")
 
 			//real confession
 			if(data.success === true){
 				if (data.justTalked === false){
 					//insert
-					console.log("it's a real :", data.success, " - data.justTalked ", data.justTalked)
 					alert("Misdemeanours received successfully 😀")
 				}
 			}else{
-				console.log("Deu merda")
 				alert("Error in sending the information")
 			}
 

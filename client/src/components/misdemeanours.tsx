@@ -50,8 +50,6 @@ const Midemeanours : React.FC = ( ) => {
 		misdemeanourFilter = misdemeanour.filter((itens) => itens.misdemeanour === search);
 	}
 
-	console.log("search",search);
-
 	const handSelectChange = ({value}:any) => {
 		setSearch(value)
 	}

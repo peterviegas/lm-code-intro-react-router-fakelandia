@@ -112,7 +112,7 @@
     justify-content: center;
 }
 
-.notFound__button {
+.fakelandia-button {
     background: #8a327b;
     color: white;
     border-style: outset;
@@ -156,4 +156,55 @@ body {
     background-color: #a01a8a;
     color: #8a327b;
     border-radius: 6px;
+}
+
+.confessToUs-div__text {
+    margin: 0 auto;
+    width: 50%;
+    font-size: 23px;
+    color: #8a327b;
+    font-family: Papyrus, fantasy;
+}
+
+.confessToUs-div {
+    margin: 0 auto;
+    width: 500px;
+    color: #8a327b;
+    font-size: 15px;
+    font-weight: bold;
+    text-align: end;
+}
+
+.confessToUs-div__reason {
+    margin-top: 10px;
+    width: 500px;
+}
+
+.confessToUs-div__reason--label {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 59%;
+    align-content: flex-end;
+    float: left;
+    margin-right: 5px;
+}
+
+.confessToUs-div__reason--select {
+    width: 40%;
+    text-align: center;
+    float: left;
+    color: #8a327b;
+}
+
+.confessToUs-div__button {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.about-div__text {
+    margin: 0 auto;
+    width: 100%;
+    font-size: 20px;
+    color: #8a327b;
+    font-family: Papyrus, fantasy;
 }

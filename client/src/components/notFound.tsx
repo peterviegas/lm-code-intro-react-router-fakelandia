@@ -17,7 +17,7 @@ const NotFound : React.FC = ( ) => {
 		</div>
 		<div className="notFound-div__button">
 		
-			<button className="notFound__button" ><NavLink to = '/' className='notFoundButton__link'>Return to the home</NavLink></button>
+			<button className="fakelandia-button" ><NavLink to = '/' className='notFoundButton__link'>Return to the home</NavLink></button>
 		</div>
 		</>
     )

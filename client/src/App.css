@@ -51,10 +51,13 @@
     margin-top: 1px;
     border-top: 0.4px solid #a01a8a;
     display: flex;
-    flex-direction: row;
+    flex-direction: row wrap;
     justify-content: center;
     padding: 8px;
     background: #e2d9dc;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
 
 .footer-nav__img {
